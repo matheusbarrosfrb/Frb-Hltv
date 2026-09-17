@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HLTV.org - Matheus "frb" Barros</title>
+  <meta name="description" content="HLTV Profile for Matheus 'frb' Barros - Counter-Strike player statistics, matches, and career highlights.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --hltv-bg: #1d2128;
+      --hltv-header: #212630;
+      --hltv-navbar: #181c22;
+      --hltv-card: #272d37;
+      --hltv-card-alt: #2d3440;
+      --hltv-border: #353c4a;
+      --hltv-accent: #3178ba;
+      --hltv-text: #e1e3e8;
+      --hltv-muted: #8b94a0;
+      --hltv-green: #388e3c;
+      --hltv-red: #d32f2f;
+      --hltv-gold: #e5a93b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: var(--hltv-bg);
+      color: var(--hltv-text);
+      font-size: 13px;
+    }
+
+    a {
+      color: var(--hltv-accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Top Navigation Header */
+    .top-bar {
+      background-color: var(--hltv-navbar);
+      border-bottom: 3px solid var(--hltv-accent);
+      padding: 0 20px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .hltv-logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .hltv-logo span {
+      color: var(--hltv-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: var(--hltv-text);
+      padding: 15px 0;
+    }
+
+    .nav-links a.active {
+      color: var(--hltv-accent);
+      border-bottom: 2px solid var(--hltv-accent);
+    }
+
+    /* Main Container Grid */
+    .site-container {
+      max-width: 1180px;
+      margin: 15px auto;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 15px;
+      padding: 0 10px;
+    }
+
+    /* Sidebar (HLTV Style) */
+    .sidebar-box {
+      background: var(--hltv-card);
+      border: 1px solid var(--hltv-border);
+      margin-bottom: 15px;
+    }
+
+    .sidebar-header {
+      background: var(--hltv-header);
+      padding: 8px 12px;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--hltv-border);
+      color: var(--hltv-muted);
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--hltv-border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    .sidebar-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Player Profile Hero Section */
+    .player-profile-card {
+      background: var(--hltv-card);
+      border: 1px solid var(--hltv-border);
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    .player-avatar-wrapper {
+      position: relative;
+    }
+
+    .player-avatar {
+      width: 160px;
+      height: 200px;
+      object-fit: cover;
+      border: 1px solid var(--hltv-border);
+      background-color: var(--hltv-header);
+    }
+
+    .player-details h1 {
+      font-size: 26px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .player-nickname {
+      color: var(--hltv-accent);
+      font-weight: bold;
+    }
+
+    .player-meta {
+      color: var(--hltv-muted);
+      margin-bottom: 15px;
+      font-size: 12px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 25px;
+      font-size: 12px;
+    }
+
+    .info-grid div span {
+      color: var(--hltv-muted);
+    }
+
+    /* Key HLTV Stats Grid */
+    .stats-summary-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+      background: var(--hltv-header);
+      border: 1px solid var(--hltv-border);
+      padding: 12px;
+    }
+
+    .stat-card {
+      text-align: center;
+    }
+
+    .stat-card .val {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .stat-card .lbl {
+      font-size: 10px;
+      color: var(--hltv-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Rating Highlight */
+    .rating-good {
+      color: #4caf50 !important;
+    }
+
+    /* Section Panels */
+    .section-box {
+      background: var(--hltv-card);
+      border: 1px solid var(--hltv-border);
+      margin-top: 15px;
+    }
+
+    .section-title {
+      background: var(--hltv-header);
+      padding: 10px 15px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--hltv-border);
+    }
+
+    /* Table Styles */
+    .hltv-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .hltv-table th {
+      background: var(--hltv-card-alt);
+      color: var(--hltv-muted);
+      text-transform: uppercase;
+      font-size: 10px;
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    .hltv-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--hltv-border);
+    }
+
+    .hltv-table tr:hover {
+      background: var(--hltv-card-alt);
+    }
+
+    .res-win {
+      color: var(--hltv-green);
+      font-weight: bold;
+    }
+
+    .res-loss {
+      color: var(--hltv-red);
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      .site-container {
+        grid-template-columns: 1fr;
+      }
+      .player-profile-card {
+        flex-direction: column;
+      }
+      .stats-summary-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HLTV NAVBAR -->
+  <header class="top-bar">
+    <div class="brand">
+      <a href="#" class="hltv-logo">HLTV<span>.org</span></a>
+    </div>
+    <nav class="nav-links">
+      <a href="#">News</a>
+      <a href="#">Matches</a>
+      <a href="#">Results</a>
+      <a href="#" class="active">Stats</a>
+      <a href="#">Galleries</a>
+      <a href="#">Forums</a>
+    </nav>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="site-container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside>
+      <div class="sidebar-box">
+        <div class="sidebar-header">Top 5 Players 2026</div>
+        <ul class="sidebar-list">
+          <li><span>1. ZywOo</span> <strong>1.32</strong></li>
+          <li><span>2. m0NESY</span> <strong>1.28</strong></li>
+          <li><span>3. donk</span> <strong>1.27</strong></li>
+          <li><span>4. frb</span> <strong class="rating-good">1.24</strong></li>
+          <li><span>5. b1t</span> <strong>1.19</strong></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-header">Player Socials</div>
+        <ul class="sidebar-list">
+          <li><a href="https://steamcommunity.com/id/frb21" target="_blank"><i class="fa-brands fa-steam"></i> Steam (frb21)</a></li>
+          <li><a href="https://csstats.gg/player/76561198286201599" target="_blank"><i class="fa-solid fa-chart-simple"></i> CSStats Profile</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main>
+
+      <!-- PLAYER HEADER CARD -->
+      <div class="player-profile-card">
+        <div class="player-avatar-wrapper">
+          <img src="https://avatars.githubusercontent.com/u/1000000?v=4" alt="frb" class="player-avatar">
+        </div>
+
+        <div class="player-details">
+          <h1>Matheus <span class="player-nickname">"frb"</span> Barros 🇧🇷</h1>
+          <div class="player-meta">Identificação: -frb- | Status: Active / LFT</div>
+
+          <div class="info-grid">
+            <div><span>Team:</span> Unattached</div>
+            <div><span>Age:</span> 23 years</div>
+            <div><span>Role:</span> Entry Fragger / Rifler</div>
+            <div><span>Location:</span> Rio de Janeiro, Brazil</div>
+            <div><span>Primary Weapon:</span> AK-47</div>
+            <div><span>Game:</span> Counter-Strike 2</div>
+          </div>
+
+          <!-- KEY HLTV STATS SUMMARY -->
+          <div class="stats-summary-bar">
+            <div class="stat-card">
+              <div class="val rating-good">1.24</div>
+              <div class="lbl">Rating 2.0</div>
+            </div>
+            <div class="stat-card">
+              <div class="val">1.18</div>
+              <div class="lbl">K/D Ratio</div>
+            </div>
+            <div class="stat-card">
+              <div class="val">84.2</div>
+              <div class="lbl">ADR</div>
+            </div>
+            <div class="stat-card">
+              <div class="val">58.4%</div>
+              <div class="lbl">HS %</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATCH HISTORY PANEL -->
+      <div class="section-box">
+        <div class="section-title"><i class="fa-solid fa-crosshair"></i> Recent Matches</div>
+        <table class="hltv-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Map</th>
+              <th>Result</th>
+              <th>K - D</th>
+              <th>+/-</th>
+              <th>Rating 2.0</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>16 Sep</td>
+              <td>Mirage</td>
+              <td><span class="res-win">13 - 9</span></td>
+              <td>22 - 12</td>
+              <td>+10</td>
+              <td><strong class="rating-good">1.45</strong></td>
+            </tr>
+            <tr>
+              <td>14 Sep</td>
+              <td>Inferno</td>
+              <td><span class="res-loss">11 - 13</span></td>
+              <td>19 - 15</td>
+              <td>+4</td>
+              <td><strong>1.12</strong></td>
+            </tr>
+            <tr>
+              <td>10 Sep</td>
+              <td>Ancient</td>
+              <td><span class="res-win">13 - 7</span></td>
+              <td>18 - 9</td>
+              <td>+9</td>
+              <td><strong class="rating-good">1.38</strong></td>
+            </tr>
+            <tr>
+              <td>05 Sep</td>
+              <td>Anubis</td>
+              <td><span class="res-win">16 - 14</span></td>
+              <td>25 - 18</td>
+              <td>+7</td>
+              <td><strong class="rating-good">1.21</strong></td>
+            </tr>
+            <tr>
+              <td>01 Sep</td>
+              <td>Dust II</td>
+              <td><span class="res-loss">8 - 13</span></td>
+              <td>14 - 16</td>
+              <td>-2</td>
+              <td><span style="color: var(--hltv-muted);">0.95</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MAP PERFORMANCE PANEL -->
+      <div class="section-box">
+        <div class="section-title"><i class="fa-solid fa-map"></i> Map Statistics</div>
+        <table class="hltv-table">
+          <thead>
+            <tr>
+              <th>Map Name</th>
+              <th>Matches Played</th>
+              <th>Win Rate</th>
+              <th>Avg. Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mirage</strong></td>
+              <td>142</td>
+              <td><span class="res-win">58.2%</span></td>
+              <td><strong>1.28</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Inferno</strong></td>
+              <td>98</td>
+              <td><span class="res-win">62.0%</span></td>
+              <td><strong>1.21</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Ancient</strong></td>
+              <td>76</td>
+              <td><span class="res-win">65.8%</span></td>
+              <td><strong>1.32</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>
