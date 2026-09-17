@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "map": "de_mirage",
+    "kills": 24,
+    "deaths": 14,
+    "assists": 5,
+    "headshots": 12,
+    "damage": 2350,
+    "rounds": 22,
+    "result": "win"
+  },
+  {
+    "id": 2,
+    "map": "de_inferno",
+    "kills": 18,
+    "deaths": 16,
+    "assists": 8,
+    "headshots": 9,
+    "damage": 1920,
+    "rounds": 24,
+    "result": "win"
+  },
+  {
+    "id": 3,
+    "map": "de_nuke",
+    "kills": 12,
+    "deaths": 19,
+    "assists": 3,
+    "headshots": 6,
+    "damage": 1300,
+    "rounds": 20,
+    "result": "loss"
+  }
+]
